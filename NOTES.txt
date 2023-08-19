@@ -1,0 +1,55 @@
+# How To Pull Latest Image.
+-- docker run -it ubuntu [ IF RUN IMAGE NAME DON'T EXIST THEN INSTALL LATEST VERSION IN YOUR PC ]
+
+# How To Pull Official Image.
+-- docker pull node
+
+# How To Run Image (IT- Interactive)
+-- docker run -it node
+
+# How To Make Directory.
+--  mkdir flight-app
+
+# Example
+
+STEP 1:
+    -- npm init
+    -- npm i express
+
+STEP 2: Dockerfile
+    FROM node:latest
+    COPY index.js /home/app/index.js # File 1
+    COPY package.json /home/app/package.json # File 2
+    COPY . /home/app # All Folder And File Copy
+    WORKDIR /home/app/
+    RUN npm install
+    EXPOSE 9000 #Expose Outside Of Docker
+    CMD ['node', 'index']
+-- docker build -t <flightapp> [ BUILD IMAGE ]
+-- docker run -it <flightapp> / -- docker run <flightapp>
+-- docker run -p 3000:9000 / -- docker run -p 9000:9000<flightapp> # -p: Port configuration.
+-- http://localhost:3000
+
+STEP 3: .dockerignore
+    node_modules/
+STEP 4: How To Push Docker Image In Docker Hub.
+-- docker build -t rampukar/flightapp
+-- docker push rampukar/flightapp
+
+STEP 5: How To Pull Existed Image.
+-- docker run -it -p 9000:9000 rampukar/flightapp
+
+STEP 6: How Container And Image STOP And Delete
+-- docker container ls
+-- docker stop b78963222
+-- docker container rm b78963222
+-- docker image ls OR docker images
+-- docker image rm b78963222
+
+
+
+
+
+
+
+
