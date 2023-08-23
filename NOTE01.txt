@@ -1,0 +1,51 @@
+# Docker Common CLI
+-- docker container prune # remove all container stop.
+-- docker ps -a # all Active container show.
+-- docker images # all images listed.
+-- docker run -it --rm node OR docker run -it node OR docker run -it --rm node bash
+
+NOTE:
+    1. The flag --rm is used when you need the container to be deleted after the task for it is complete.
+    2. PWD is an environment variable that your shell will expand to your current working directory.
+        -v /home/youruser/somedir:/usr/src/app
+
+-- docker run -v ${PWD}:/app -w /app node node welcome.js
+
+# How To Express Install Your Docker
+-- docker run -v ${PWD}:/app -w /app -it node npm init
+-- docker run -v ${PWD}:/app -w /app -it node npm install express
+-- docker run -v ${PWD}:/app -w /app -it -p 3000:3000 node node index.js
+
+# How to Install and Run Wordpress
+-- docker run wordpress
+-- docker run -it --rm -d -p 8080:80 wordpress OR docker run -it --rm -d -p 8080:80 wordpress
+-- docker run -d -p 8080:80 wordpress # Alter ways run wordpress.
+-- http://localhost:8080
+
+# Default Bridge Network.
+-- docker run -it busybox
+-- hostname -i
+-- ping 172.17.0.3
+-- docker inspect <bb935df5d546> # Busybox Network Show All Details.
+
+# Docker Command And Management.
+-- docker --help
+
+# How To MySQL Pull And Run In Your System.
+-- docker pull mysql
+-- docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql # Start MySQL Server Instant.
+-- sudo docker exec -it some-mysql bash
+-- mysql -u root -p
+-- docker stop <50fba9263960>
+-- docker rm <50fba9263960>
+
+# How To Delete images
+-- docker image rm mysql
+
+# How PostGresSQL Install And Connect.
+-- docker pull postgres
+-- docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+-- docker exec -it some-postgres psql -U postgres -W postgres
+
+# Setup postgres and pg-admin in docker compose
+-- https://www.youtube.com/watch?v=eKEzq59FhEw&ab_channel=DailyWebCoding

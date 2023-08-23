@@ -47,6 +47,11 @@ STEP 6: How Container And Image STOP And Delete
 -- docker image rm b78963222
 
 
+Source:
+-- https://mherman.org/blog/dockerizing-a-react-app/
+-- https://towardsdatascience.com/complete-tutorial-on-building-images-using-docker-1f2be49ea8a6
+
+
 
 
 
